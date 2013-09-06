@@ -1,0 +1,28 @@
+Sam Best
+CS 311 - Homework 3
+Tests
+
+I ran tests against ar's output for each of the options. Some tests are automated by the
+Makefile target "tests", which executes the targets specified in the assignment, as well 
+as some additional tests.
+
+The main input files I used were the text files contained in Homework3SampleData.tar.bzip. 
+Any other files I used for testing were text files I created or source/object files that 
+happened to be in the same directory.
+
+Extra Makefile tests (besides ones specified in assignment):
+testd12345: creates two archives with all test files. Runs -d 1-s.txt 2-s.txt 3-s.txt 4-s.txt 5-s.txt
+using myar on one archive and ar on the other then compares the two archives with diff.
+testd135: same as testd12345, but runs -d 1-s.txt 3-s.txt 5-s.txt
+testd24: same as above, but runs -d 2-s.txt 4-s.txt
+testx12345: creates an archive containing all of the test inputs, makes a backup of the original
+test files, then runs myar -x to extract all files. Compares the extracted files to the backups
+using diff.
+All tests considered passing if diff didn't produce an output.
+
+Manual tests:
+-Tested all options with invalid inputs to make sure error messages were consistent with ar
+-Tested -A with various types of files, using debug messages to make sure it only added regular
+files.
+-Tested -x to make sure it extracted the files with the correct permissions and timestamps
+and with no modifications compared to the original files.
