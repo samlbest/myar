@@ -9,6 +9,18 @@ int main(int argc, char **argv)
     int file_size = 0; //size of file in archive in bytes
     char temp_fname[16];
 
+    //Display usage
+    if (argc == 1) {
+        printf("Usage: myar [-]{tvqdxA} archive-file file\n");
+        printf(" commands:\n");
+        printf("  t\t\t- Display contents of the archive.\n");
+        printf("  v\t\t- Print verbose table of contents of the archive.\n");
+        printf("  q\t\t- Quickly append a file to the archive.\n");
+        printf("  d\t\t- Delete files from the archive.\n");
+        printf("  x\t\t- Extract files from the archive, all files if none specified.\n");
+        printf("  A\t\t- Add all regular files from current directory to the archive.\n");
+    }
+
     while ((c = getopt(argc, argv, "t:v:q:d:x:A:")) != -1) {
         switch (c) {
             //Print concise table of contents of archive:
